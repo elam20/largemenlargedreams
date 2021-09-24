@@ -1,0 +1,17 @@
+0. A base in a "base-x number system" is the number of unique symbols that can be used.
+The base determines the value of each of the digits in a number. The human number system is in base 10.
+For example, 32 in base 10 has a value of (2 x 10^0) + (3 x 10^1).
+
+1. Binary is a numbering system in base 2, with only 2 values, 0 and 1.
+We care because computers operate using binary,
+because they are limited by the physical constraints of how computers work-
+through electrical signals sent through wires.
+The 1 represents the on state while a 0 represents the off state.
+
+2. f(n)=f(n) times 10^n-1
+f(n) is the input
+N is the digit from the right
+
+3. 1. x is the number you have to convert
+    2. Take the highest power of 2, closest to f(n), and subtract them from x.
+    3. Check the difference you now get, and start from all the way to the right in the number and start multiplying by base to the power of 0, and make your way up by powers of 1, multiplying the digit by the base^n-1, where n is the digit position from all the way to the right. In the end, it should all add up to x.

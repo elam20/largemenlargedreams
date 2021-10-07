@@ -3,7 +3,7 @@ public class BigSib {
 		System.out.print(m + " ");
 	}
 
-	public static String greet(String name) {
+	public String greet(String name) {
 		return(name + "\nSalutations Dr. Spaceman\nHey ya Kong Fooey\nSup mom");
 	}
 }

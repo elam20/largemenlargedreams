@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /**
 Sexy: Oscar Breen, Ethan Lam, Russell Goychayev
 APCS

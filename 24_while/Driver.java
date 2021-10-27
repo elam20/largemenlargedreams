@@ -1,13 +1,14 @@
 /***
 Team Jaundice
-Roster:Ethan Lam(Carl), Rin Fukuoka(Tape)
+Roster: Ethan Lam(Carl), Rin Fukuoka(Tape)
 APCS
 HW24 -- Coin
 2021-10-25
-time spent:
+time spent: 1.5 hours
 
-DISC:
-QCC:
+DISC: How to use the while loop: while the boolean is true, loop runs.
+Instance of a class can be a parameter.
+QCC: Is there a way to write this more concisely/conbine any of the methods with loops?
 
 ***/
 /***
@@ -91,7 +92,7 @@ public class Driver {
 
   public static void flipUntilBM( Coin c1, Coin c2) {
     int matchCtr = 0;
-    while ( matchCtr < 65536 || matchCtr%2004 != 0) {
+    while ( matchCtr < 65536 || matchCtr % 2004 != 0) {
       c1.flip();
       c2.flip();
       if ( c1.equals(c2)) {
@@ -100,9 +101,4 @@ public class Driver {
     }
   }
 
-
-
-
-/*===================TOP==========================
-====================BOTTOM======================*/
 }//end class

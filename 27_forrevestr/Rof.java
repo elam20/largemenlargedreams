@@ -1,5 +1,4 @@
 /*
- Marcus Wu Oscar Breen Lauren Lee
  APCS
  HW27 -- FOR the Love of Strings -- String code and methods
  2021-10-29

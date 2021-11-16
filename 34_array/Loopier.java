@@ -1,23 +1,29 @@
 /***
  * Walrus (Humans: Daniel Jung, Joshua Yagupsky, Ethan Lam; Ducks: Ralph, Quacker, Carl)
  * APCS
- * HW34 -- A Pirate's Life for Me
- * 2021-11-14
- * time spent: 1hrs
+ * HW35 -- Refactoring HW#34
+ * 2021-11-15
+ * time spent: 0.3hrs
  * QCC:
  		-
  * Disco:
- 		- For arrays, unlike Strings length is a property/attribute, not a method. Thus, you don't need parentheses after it.
+ 		-
  ***/
 
-import java.util.Arrays;
-import java.util.Random;
-
 public class Loopier {
-  public static Random rando = new Random();
+  public static int[] arrayCopy(int[] array, int start, int stop){
+    int b = Math.max(start, 0);
+    int e = Math.min(array.length, stop);
+    int[] out = new int[e-b];
+    for (int i = b; i < e; i++){
+      out[i-b] = array[i];
+    }
+    return out;
+  }
+
   public static void randGenInt(int[] arr, int max) {
       for (int i = 0; i < arr.length; i++) {
-          arr[i] = rando.nextInt(max);
+          arr[i] =(int) (Math.random() * max);
       }
   }
 
@@ -56,16 +62,14 @@ public class Loopier {
     if(a[0] == target){
       return 0;
     }
-    else if(a.length == 1){
+    else if (a.length == 1){
+      return -1;
+    }
+    else if (linSearchR(arrayCopy(a,1,a.length),target) == -1){
       return -1;
     }
     else{
-      if (linSearchR(Arrays.copyOf(a,a.length-1),target) == -1){
-        return -1;
-      }
-      else{
-        return linSearchR(Arrays.copyOf(a,a.length-1),target) + 1;
-      }
+      return linSearchR(arrayCopy(a,1,a.length),target) + 1;
     }
   }
 
@@ -75,7 +79,7 @@ public class Loopier {
       out++;
     }
     if (a.length != 1){
-      out += freqRec(Arrays.copyOf(a,a.length-1),target);
+      out += freqRec(arrayCopy(a,0,a.length-1),target);
     }
     return out;
   }

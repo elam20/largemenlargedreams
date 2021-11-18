@@ -1,0 +1,20 @@
+Ethan Lam
+APCS
+HW36 All Quacked Up
+2021-11-18
+Time spent: 45 mins
+
+>Code should be incremental so you know where errors are
+>Only the first error message is truly reliable
+>It tells you where the compiler noticed the problem, not where it is.
+>Make sure you're editing and compiling the same code
+>Debugging by bisection- delete half the code to determine where the error is
+>Don't always listen to the compiler
+>Solve hanging (infinite loops or recursion) by putting a print statement before and after loops.
+>The same can be done with methods.
+>Infinite recursion will return a stack overflow error.
+>Exception message errors display the line, name of exception, and a stack trace
+>Simplify the output
+>Develop a hypothesis and test it for logic errors
+>Break down complex expressions into a series of assignments and temporary variables.
+>Rubber duck debugging

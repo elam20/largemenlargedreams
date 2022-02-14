@@ -1,3 +1,11 @@
+/*
+Team JEA: Jacob Kirmayer, Ethan Lam, Ariella Katz, Jacob Jr., Carl, Tom
+APCS
+HW63: Read/Review/Expand
+2022-02-10
+time spent: 0.5 hrs
+*/
+
 import java.util.Scanner;
 import java.io.File;
 import java.util.HashMap;
@@ -13,7 +21,7 @@ public class Review {
   private static HashMap<String, Double> sentiment = new HashMap<String, Double>();
   private static ArrayList<String> posAdjectives = new ArrayList<String>();
   private static ArrayList<String> negAdjectives = new ArrayList<String>();
-
+  private static ArrayList<String> allWords = new ArrayList<String>(); //added by us
 
   private static final String SPACE = " ";
 
@@ -24,6 +32,7 @@ public class Review {
         String[] temp = input.nextLine().split(",");
         sentiment.put(temp[0],Double.parseDouble(temp[1]));
         //System.out.println("added "+ temp[0]+", "+temp[1]);
+        allWords.add(temp[0]); //added by us
       }
       input.close();
     }
@@ -185,6 +194,23 @@ public class Review {
     return stars;
   }
 
+  public static String fakeReview(String fileName) {
+    String review = textToString("SimpleReview.txt");
+    String[] words = review.split(" ");
+    String newRev = "";
+    for (String w: words) {
+      if (w.substring(0,1).equals("*")) {
+        String word = removePunctuation(w);
+        //to make all of the adjectives positive
+        if (sentimentVal(word) <= 0) {
+          w = randomPositiveAdj();
+        }
+      }
+      newRev += w + " ";
+    }
+    return newRev;
+  }
+
   public static void main(String[] args) {
     System.out.println("Expecting 2.32...");
     System.out.println(sentimentVal("happily"));
@@ -199,9 +225,11 @@ public class Review {
     System.out.println("Expecting 0.15...");
     System.out.println(sentimentVal("computer"));
 
-    System.out.println("Expecting -0.03...");
+    System.out.println("Expecting -0.18...");
     System.out.println(totalSentiment("SimpleReview.txt"));
     System.out.println("Expecting 3...");
     System.out.println(starRating("SimpleReview.txt"));
+
+    System.out.println(fakeReview("SimpleReview.txt"));
   }
 }

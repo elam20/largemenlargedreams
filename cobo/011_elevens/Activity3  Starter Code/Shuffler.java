@@ -104,7 +104,7 @@ public class Shuffler {
 
     for (int k = values.length-1; k >0; k--){
 
-      int rand = (int) (Math.random()*(values.length));
+      int rand = (int)Math.random()*(values.length);
       int temp = values[rand];
 
       values[rand] = values[k];

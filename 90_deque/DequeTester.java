@@ -8,7 +8,7 @@ time spent: 0.3 hrs
 
 public class DequeTester {
   public static void main(String[] args) {
-    LLDeque deque = new LLDeque<String>();
+    LLDeque<String> deque = new LLDeque<String>();
 
     // using deque as stack (FILO)
     System.out.println("Now using deque as a stack...");
@@ -42,5 +42,16 @@ public class DequeTester {
     System.out.println(deque.removeLast()); //ow
     System.out.println(deque.removeLast()); //o
     System.out.println(deque.isEmpty()); //true
+
+    deque.addFirst("first thing");
+    deque.addFirst("second");
+    deque.addFirst("second");
+    deque.addFirst("troid");
+
+    System.out.println(deque);
+
+    deque.removeFirstOccurrence("second");
+
+    System.out.println(deque);
   }
 }

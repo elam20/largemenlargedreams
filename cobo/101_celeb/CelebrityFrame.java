@@ -41,6 +41,7 @@ public class CelebrityFrame extends JFrame
 	{
 		//The first line of any subclass should ALWAYS be a correct call to the super constructor.
 		super();
+		//controller = controllerRef;
 
 	}
 

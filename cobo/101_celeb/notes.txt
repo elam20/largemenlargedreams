@@ -1,0 +1,30 @@
+TNPG: Fred (Brian Kang, Brian Wang, Ethan Lam)
+APCS
+LB 101 Celeb
+2022-04-26
+time spent: too many hrs
+
+Act 1:
+1. On todo list
+2. type of celeb, name, other type of personal info, and facts about them, turn#, points, other game funcs
+3. The game class should be able to create itself (a game), get a random celeb, give info about them, and check if the reader's guess is correct.
+4. All of them but the random celeb. The creation is a constructor, the info about celeb would be called multiple times, and the check guess also. Only the random celeb at the beginning of the game can be in the const.
+5. The play method will make a turn/game, pick a random celeb, prompt the player with info on demand, and check any guesses, incrementing points for a correct guess.
+6. Pencil, type of writing utensil, purpose (writing and learning), material
+7. Partner Description: Lead, Long and it writes.
+
+Act 2:
+1. To create an instance of this class
+2. The heading of a const should be public, and be named the name of the class. It defaultly returns this class.
+3. Pick celebrity, give hint, check answer, update score
+4. Name, info/facts, type
+5. in code
+6. in code
+7. Overloaded constructor, some have params to simplify celeb creation process, whereas the def const only does stuff every celeb const call will do.
+
+Act 3:
+1. Swing Component Notes: The JComponent Class tells features that it provides to its subclasses.
+2. celebGameList is private visibility.
+3. It will not match the visibility of celebGameList, because it will be needed to be accessed by other methods.
+
+Act 4:

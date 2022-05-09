@@ -1,0 +1,17 @@
+FRED (Brian Wang, Brian Kang, Ethan Lam)
+APCS
+HW95 BST
+2022--05--09
+time spent: .5 hrs
+
+With L = level, d = depth, h = height…
+
+1. a perfect binary tree has (2^(L+1))-1 nodes
+2. at each level, a perfect binary tree has 2^(d-1) nodes
+3. height of a complete binary tree w/ n nodes is log_2(n-1)
+
+DISCO:
+  Traversals are very easy in recursive format
+
+QCC:
+  Level? Depth? Height? So confusing...

@@ -1,0 +1,13 @@
+FRED (Brian Wang, Brian Kang, Ethan Lam)
+APCS
+HW97 BST
+2022--05--11
+time spent: 1? hrs
+
+
+
+DISCO:
+  Trace first...
+
+QCC:
+  The algo is fine. The implementation is average for my midnight coding. 

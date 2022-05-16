@@ -1,0 +1,16 @@
+Fred (Brian Kang, Brian Wang, Ethan Lam)
+APCS
+HW99: Some Are More Equal Than Others, Codified
+2022-05-13
+time spent: 1hr + class time
+
+DISCO:
+Priority Queues have to be enqueued in the order they are enqueued. You can only decide on priority when removing/peeking. This makes the code slow. But this has to be.
+I do not like it.
+I cry.
+
+On a side note, comment more in code. Not like I didn't. 
+
+QCC:
+How can we use int in our code for Array Priority Queue? Is the cargo the priority?
+What is the best way to establish priority in the list? Index? Label? Else?

@@ -1,0 +1,12 @@
+Team Fred (Brian Kang, Brian Wang, Ethan Lam)
+APCS
+HW101: heaps
+2022--05--18
+time spent: 0.5 hrs?
+
+Speculation, assuming that no shits should be given about placing something where, other than that children are less
+1. If new node less than current node, change current node to child node (if any). If greater than current node, set current node as a child of new node, and parent's (if any) child as new node.
+2. Repeat step 2 until done.
+3. If no children, set new node as child of current node.
+
+Yes, there will only be 1 child per node.

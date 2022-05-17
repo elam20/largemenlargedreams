@@ -1,0 +1,12 @@
+Team Fred (Brian Kang, Brian Wang, Ethan Lam)
+APCS
+HW101: heaps
+2022--05--18
+time spent: 0.5 hrs?
+
+Speculation, assuming that no shits should be given about placing something where, other than that children are less
+1. Set remove node parent's child as remove node's child instead. Unless there is no parent, in which just delete the remove node, or there is no child, in which just delete the remove node.
+
+Yes, there will only be 1 child per node.
+
+Please remove the children.

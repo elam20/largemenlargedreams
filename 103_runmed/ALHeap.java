@@ -1,19 +1,20 @@
-/*
-Fred (Brian kang, Brian Wang, Ethan lam)
-APCS
-2022--05--18
-HW103 Actual heaping steaming heap of
-Time spent: literally too many hrs
-*/
+/**
+ * class ALHeap
+ * Implements a min heap using an ArrayList as underlying container
+ */
+
 import java.util.ArrayList;
-public class ALHeapMax{
+
+public class ALHeap
+{
+
   //instance vars
   private ArrayList<Integer> _heap;
 
   /**
    * default constructor  ---  inits empty heap
    */
-  public ALHeapMax()
+  public ALHeap()
   {
     _heap = new ArrayList<Integer>();
   }
@@ -28,7 +29,7 @@ public class ALHeapMax{
   public String toString()
   {
     //simple version:
-    //return _heap.toString();
+    //return _heap.toString(); 
 
     //prettier version:
     String lvlOrdTrav = "heap size " + _heap.size() + "\n";
@@ -59,7 +60,7 @@ public class ALHeapMax{
    * Returns min value in heap
    * Postcondition: Heap remains unchanged.
    */
-  public Integer peek()
+  public Integer peekMin()
   {
     if ( _heap.size() < 1 )
       return null;
@@ -89,7 +90,7 @@ public class ALHeapMax{
       //pinpoint parent
       parentPos = (addValPos-1) / 2;
 
-      if ( addVal.compareTo(_heap.get(parentPos)) > 0 ) { //addVal < parent
+      if ( addVal.compareTo(_heap.get(parentPos)) < 0 ) { //addVal < parent
         swap( addValPos, parentPos );
         addValPos = parentPos;
       }
@@ -106,13 +107,13 @@ public class ALHeapMax{
    * ALGO:
    * <your clear && concise procedure here>
    */
-  public Integer remove()
+  public Integer removeMin()
   {
     if ( _heap.size() == 0 )
       return null;
 
     //store root value for return at end of fxn
-    Integer retVal = peek();
+    Integer retVal = peekMin();
 
     //store val about to be swapped into root
     Integer foo = _heap.get( _heap.size() - 1);
@@ -136,7 +137,7 @@ public class ALHeapMax{
       if ( minChildPos == -1 )
         break;
       //if i am less than my least child, then i've walked far enough
-      else if ( foo.compareTo( _heap.get(minChildPos) ) > 0 )
+      else if ( foo.compareTo( _heap.get(minChildPos) ) <= 0 )
         break;
       //if i am > least child, swap with that child
       else {
@@ -168,7 +169,7 @@ public class ALHeapMax{
     else if ( rc >= _heap.size() )
       retVal = lc;
     //have 2 children, so compare to find least
-    else if ( _heap.get(lc).compareTo(_heap.get(rc)) > 0 )
+    else if ( _heap.get(lc).compareTo(_heap.get(rc)) < 0 )
       retVal = lc;
     else
       retVal = rc;
@@ -179,7 +180,7 @@ public class ALHeapMax{
   //~~~~~~~~~~~~~ aux helper fxns ~~~~~~~~~~~~~~
   private Integer minOf( Integer a, Integer b )
   {
-    if ( a.compareTo(b) > 0 )
+    if ( a.compareTo(b) < 0 )
       return a;
     else
       return b;
@@ -190,11 +191,11 @@ public class ALHeapMax{
   {
     _heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );
   }
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-  public int size(){
-    return _heap.size();
-  }
 
+
+  //main method for testing
   public static void main( String[] args )
   {
       ALHeap pile = new ALHeap();
@@ -242,5 +243,8 @@ public class ALHeapMax{
       System.out.println(pile);
       System.out.println("removing " + pile.removeMin() + "...");
       System.out.println(pile);
-    }
-}
+    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  }//end main()
+
+}//end class ALHeap

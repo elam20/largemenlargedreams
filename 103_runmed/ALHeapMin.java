@@ -8,6 +8,7 @@ Time spent: literally too many hrs
 import java.util.ArrayList;
 public class ALHeapMin{
   //instance vars
+  //instance vars
   private ArrayList<Integer> _heap;
 
   /**
@@ -15,12 +16,7 @@ public class ALHeapMin{
    */
   public ALHeapMin()
   {
-    _heap = new ArrayList();
-  }
-
-
-  public int size(){
-    return _heap.size();
+    _heap = new ArrayList<Integer>();
   }
 
 
@@ -32,7 +28,23 @@ public class ALHeapMin{
    */
   public String toString()
   {
-    return _heap.toString();
+    //simple version:
+    //return _heap.toString();
+
+    //prettier version:
+    String lvlOrdTrav = "heap size " + _heap.size() + "\n";
+
+    if ( _heap.size() == 0 ) return lvlOrdTrav;
+
+    int h = 1; //init height to 1
+    for( int i = 0; i < _heap.size(); i++ ) {
+      lvlOrdTrav += i + ":" + _heap.get(i) + " ";
+      if ( i >= Math.pow(2,h) - 2 ) {
+        lvlOrdTrav += "\n";
+        h++;
+      }
+    }
+    return lvlOrdTrav;
   }//O(n)
 
 
@@ -40,10 +52,7 @@ public class ALHeapMin{
    * boolean isEmpty()
    * Returns true if no meaningful elements in heap, false otherwise
    */
-  public boolean isEmpty()
-  {
-    return _heap.isEmpty();
-  }//O(1)
+  public boolean isEmpty() { return _heap.isEmpty(); } //O(1)
 
 
   /**
@@ -53,41 +62,49 @@ public class ALHeapMin{
    */
   public Integer peek()
   {
-    if(_heap.size() > 0){
-      return _heap.get(0);
-    }
-    else{
+    if ( _heap.size() < 1 )
       return null;
-    }
-  }//O(1)
+    else
+      return _heap.get(0);
+  } //O(1)
 
 
   /**
    * add(Integer)
    * Inserts an element in the heap
    * Postcondition: Tree exhibits heap property.
-   * ALGO: 1. Insert as next child. 2. While current node is greater than parent node, swap.
+   * ALGO:
    * <your clear && concise procedure here>
    */
-   public void add( Integer addVal ){
-     _heap.add(addVal);
-     if(_heap.size() > 1){
-       int curInd = _heap.size() - 1;
-       int parInd = (curInd-1)/2 ;
-       while(_heap.get(curInd)<_heap.get(parInd)){
-         swap(curInd, parInd);
-         curInd = parInd;
-         parInd = (curInd - 1)/2;
-     }
-   }
- }//O(log n)
+  public void add( Integer addVal )
+  {
+
+    //Add value as last node, to maintain balance, completeness of tree
+    _heap.add( addVal );
+
+    int addValPos = _heap.size() - 1;
+    int parentPos;
+
+    while( addValPos > 0 ) { //potentially swap until reach root
+
+      //pinpoint parent
+      parentPos = (addValPos-1) / 2;
+
+      if ( addVal.compareTo(_heap.get(parentPos)) < 0 ) { //addVal < parent
+        swap( addValPos, parentPos );
+        addValPos = parentPos;
+      }
+      else
+        break;
+    }
+  } //O(logn)
 
 
   /**
    * removeMin()  ---  means of removing an element from heap
    * Removes and returns least element in heap.
    * Postcondition: Tree maintains heap property.
-   * ALGO: 1. While node has children, swap node and least child. Go to just swapped node. 2. repeat. 3. Cut tail.
+   * ALGO:
    * <your clear && concise procedure here>
    */
   public Integer remove()
@@ -130,7 +147,7 @@ public class ALHeapMin{
     }
     //return removed value
     return retVal;
-  }//O(log n)
+  }//O(logn)
 
 
   /**
@@ -141,15 +158,22 @@ public class ALHeapMin{
    */
   private int minChildPos( int pos )
   {
-    if(2*pos+2<_heap.size()){
-      return minOf(2*pos+1, 2*pos+2);
-    }
-    else if(2*pos+1<_heap.size()){
-      return 2*pos+1;
-    }
-    else{
-      return -1;
-    }
+    int retVal;
+    int lc = 2*pos + 1; //index of left child
+    int rc = 2*pos + 2; //index of right child
+
+    //pos is not in the heap or pos is a leaf position
+    if ( pos < 0 || pos >= _heap.size() || lc >= _heap.size() )
+      retVal = -1;
+    //if no right child, then left child is only option for min
+    else if ( rc >= _heap.size() )
+      retVal = lc;
+    //have 2 children, so compare to find least
+    else if ( _heap.get(lc).compareTo(_heap.get(rc)) < 0 )
+      retVal = lc;
+    else
+      retVal = rc;
+    return retVal;
   }//O(1)
 
 
@@ -166,5 +190,9 @@ public class ALHeapMin{
   private void swap( int pos1, int pos2 )
   {
     _heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );
+  }
+
+  public int size(){
+    return _heap.size();
   }
 }

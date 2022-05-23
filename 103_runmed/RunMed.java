@@ -47,10 +47,10 @@ public class RunMed{
       }
       else if(min.size() - max.size() > 1){
         max.add(min.remove());
-        System.out.println("TEST\n" + min);
-        System.out.println(min.peek());
+        //System.out.println("TEST\n" + min);
+        //System.out.println(min.peek());
         min.add(min.remove());
-        System.out.println(min);
+        //System.out.println(min);
       }
     }
 
